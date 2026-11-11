@@ -139,7 +139,7 @@ async function showLogin() {
     <canvas id="scene"></canvas>
     <div class="login-overlay">
       <section class="hero">
-        ${cube(64)}
+        <img class="brand-logo" src="assets/torino-logo.png" alt="Torino">
         <h1>Etiquetas <span>3D</span></h1>
         <p>Distribuição de lotes e impressão de etiquetas por andar de estoque.</p>
         <ul>
@@ -246,7 +246,7 @@ function showShell() {
   app.innerHTML = `
   <div class="shell">
     <aside class="sidebar">
-      <div class="side-brand">${cube(34)}<div><b>Etiquetas 3D</b><small>${esc(roleInfo(u.role).panel)}</small></div></div>
+      <div class="side-brand"><img class="side-logo" src="assets/torino-logo.png" alt="Torino"><div><b>Etiquetas 3D</b><small>${esc(roleInfo(u.role).panel)}</small></div></div>
       <div class="side-user" id="side-user"></div>
       <div class="nav-label">Menu</div>
       <nav class="nav">${nav.map(([r, ic, label]) => `<button data-route="${r}">${icon(ic, 18)}<span>${label}</span></button>`).join('')}</nav>
