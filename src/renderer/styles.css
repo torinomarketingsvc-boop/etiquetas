@@ -216,11 +216,9 @@ input[type=checkbox] { width: 17px; height: 17px; accent-color: var(--cyan); cur
 .setup-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 99px; font-size: 12px; font-weight: 600; background: rgba(251, 191, 36, 0.14); color: var(--amber); border: 1px solid rgba(251, 191, 36, 0.35); margin-bottom: 10px; }
 .login-foot {
   position: absolute; left: 6vw; right: 6vw; bottom: 16px; z-index: 3;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  display: flex; align-items: center; justify-content: flex-end; gap: 16px;
   font-size: 12px; color: var(--muted);
 }
-.login-foot .data { display: flex; align-items: center; gap: 8px; min-width: 0; }
-.login-foot code { color: #cbd5e1; background: rgba(15, 23, 42, 0.7); padding: 3px 8px; border-radius: 7px; border: 1px solid var(--line); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 46vw; }
 
 /* ---------------- Estrutura (shell) ---------------- */
 .shell { position: absolute; inset: 0; display: grid; grid-template-columns: 252px minmax(0, 1fr); }
@@ -656,10 +654,6 @@ table.table { width: 100%; border-collapse: separate; border-spacing: 0; }
 .floor-pick input { width: 16px; height: 16px; accent-color: var(--cyan); margin: 0; }
 .floor-hero .floor-cube.sm { width: 40px; height: 40px; font-size: 15px; border-radius: 12px; }
 
-/* Status do servidor na tela de login */
-.srv-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin: 0 2px 0 6px; }
-.srv-dot.on { background: #34d399; box-shadow: 0 0 8px #34d399; }
-.srv-dot.off { background: #f87171; box-shadow: 0 0 8px #f87171; }
 
 /* Marca Torino */
 .tb-crown { width: 19px; height: auto; display: block; filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.45)); }

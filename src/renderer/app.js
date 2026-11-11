@@ -166,8 +166,6 @@ async function showLogin() {
       </div>
     </div>
     <footer class="login-foot">
-      <div class="data">${icon('cloud', 14)} Servidor: <code>${esc(info.server || '—')}</code>
-        <span class="srv-dot ${offline ? 'off' : 'on'}"></span>${offline ? 'sem conexão' : 'conectado'}</div>
       <span>Versão ${esc(info.version)} · ${esc(info.host)}</span>
     </footer>
   </div>`;
