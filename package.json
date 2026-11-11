@@ -1,0 +1,77 @@
+{
+  "name": "etiquetas-3d",
+  "productName": "Etiquetas 3D",
+  "version": "1.2.0",
+  "description": "Sistema desktop de impressão de etiquetas por andar de estoque",
+  "main": "main.js",
+  "author": "Etiquetas 3D",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "icon": "node scripts/make-icon.js",
+    "dist": "node scripts/build-local.js",
+    "release": "electron-builder --win nsis --publish always",
+    "postinstall": "node scripts/copy-vendor.js"
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.11"
+  },
+  "devDependencies": {
+    "electron": "^45.3.0",
+    "electron-builder": "^26.18.0",
+    "jsbarcode": "^3.12.3",
+    "three": "^0.187.0"
+  },
+  "build": {
+    "appId": "br.com.etiquetas3d.app",
+    "productName": "Etiquetas 3D",
+    "copyright": "Etiquetas 3D",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "build/icon.png",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "Etiquetas3D-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Etiquetas 3D",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "deleteAppDataOnUninstall": false,
+      "language": "1046"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "releaseType": "release"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/torinomarketingsvc-boop/etiquetas.git"
+  }
+}

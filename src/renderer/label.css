@@ -1,0 +1,97 @@
+/* Etiqueta — medidas em mm, proporcionais à altura configurada */
+.label {
+  box-sizing: border-box;
+  background: #fff;
+  color: #000;
+  font-family: Arial, 'Segoe UI', Helvetica, sans-serif;
+  padding: calc(var(--h) * 0.05) calc(var(--h) * 0.065);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  gap: calc(var(--h) * 0.025);
+  overflow: hidden;
+  position: relative;
+  break-after: page;
+  page-break-after: always;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.label:last-child { break-after: auto; page-break-after: auto; }
+.label * { box-sizing: border-box; }
+.lb-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 2mm;
+  font-size: calc(var(--h) * 0.064);
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 0.35mm solid #000;
+  padding-bottom: calc(var(--h) * 0.018);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.lb-company { overflow: hidden; text-overflow: ellipsis; }
+.lb-mid {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: calc(var(--h) * 0.05);
+  align-items: center;
+  min-height: 0;
+}
+.lb-floor {
+  background: #000;
+  color: #fff;
+  border-radius: 1.2mm;
+  padding: calc(var(--h) * 0.025) calc(var(--h) * 0.045);
+  text-align: center;
+  min-width: calc(var(--h) * 0.4);
+  max-width: calc(var(--w) * 0.34);
+}
+.lb-floor-code { font-size: calc(var(--h) * 0.2); font-weight: 900; line-height: 1; }
+.lb-floor-name {
+  font-size: calc(var(--h) * 0.052);
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0.4mm;
+}
+.lb-info { min-width: 0; }
+.lb-code {
+  font-size: calc(var(--h) * 0.115);
+  font-weight: 900;
+  line-height: 1.05;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lb-desc {
+  font-size: calc(var(--h) * 0.066);
+  line-height: 1.15;
+  max-height: 2.3em;
+  overflow: hidden;
+  margin-top: 0.4mm;
+}
+.lb-meta {
+  display: flex;
+  gap: 3mm;
+  font-size: calc(var(--h) * 0.066);
+  margin-top: 0.6mm;
+  white-space: nowrap;
+}
+.lb-barcode { width: 100%; height: calc(var(--h) * 0.19); display: block; }
+.lb-nobar {
+  height: calc(var(--h) * 0.19);
+  display: grid;
+  place-items: center;
+  border: 0.3mm dashed #000;
+  font-size: calc(var(--h) * 0.05);
+}
+.lb-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 2mm;
+  font-size: calc(var(--h) * 0.054);
+  white-space: nowrap;
+  overflow: hidden;
+}

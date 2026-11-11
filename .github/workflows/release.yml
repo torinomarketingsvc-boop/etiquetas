@@ -1,0 +1,45 @@
+# Publica uma nova versão automaticamente a cada push na branch main.
+# Os computadores com o sistema instalado detectam a nova versão,
+# baixam em segundo plano e instalam ao fechar o programa.
+name: Publicar nova versão
+
+on:
+  push:
+    branches: [main, master]
+    paths-ignore:
+      - '**.md'
+      - '.vscode/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Definir versão (major.minor do package.json + número da execução)
+        run: node scripts/ci-prepare.js
+        env:
+          RELEASES_REPO: ${{ vars.RELEASES_REPO }}
+
+      - name: Gerar instalador e publicar no GitHub Releases
+        run: npx electron-builder --win nsis --publish always
+        env:
+          GH_TOKEN: ${{ secrets.RELEASES_TOKEN || secrets.GITHUB_TOKEN }}

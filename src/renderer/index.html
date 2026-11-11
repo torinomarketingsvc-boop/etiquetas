@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:">
+  <title>Etiquetas 3D</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="label.css">
+  <script src="vendor/JsBarcode.all.min.js"></script>
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header id="titlebar">
+    <div class="tb-brand"><span class="tb-logo"></span><span>Etiquetas 3D</span></div>
+    <div class="tb-right" id="tb-right"></div>
+  </header>
+  <div id="app"></div>
+  <div id="update-banner" hidden></div>
+  <div id="toasts"></div>
+</body>
+</html>
